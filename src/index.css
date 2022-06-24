@@ -15,7 +15,7 @@
   --paragraph-2-size: 1.125rem;
   --paragraph-3-size: .9375rem;
 
-  --section-padding-xs: calc(var(--section-padding) / 2.5) 0;
+  --section-padding-xs: calc(var(--section-padding) / 2.5);
   --section-padding: 2.5em;
   --section-padding-md: calc(2 * var(--section-padding));
   --section-padding-lg: calc(3 * var(--section-padding));
@@ -106,19 +106,19 @@ h3 {
  }
 
  .secpad-xs {
-  padding: var(--section-padding-xs);
+  padding: var(--section-padding-xs) 0;
  }
 
  .secpad-sm {
-  padding: var(--section-padding)
+  padding: var(--section-padding) 0;
  }
 
  .secpad-md {
-  padding: var(--section-padding-md)
+  padding: var(--section-padding-md) 0;
  }
 
  .secpad-lg {
-  padding: var(--section-padding-lg)
+  padding: var(--section-padding-lg) 0;
  }
 
  /* SPECIFIC */
@@ -264,6 +264,36 @@ h3 {
   margin-bottom: 1.5em;
 }
 
+  /* INFOBOXES */
+
+  .info {
+    padding: var(--section-padding) 0;
+    box-shadow: 0 0 12px var(--secondary-clr);
+  }
+
+  .info__container {
+    max-width:350px;
+  }
+
+.info__box {
+  border: 3px solid var(--primary-clr);
+  border-radius: 5px;
+  padding: var(--section-padding) var(--section-padding-xs);
+  text-align: center;
+}
+
+.info__img {
+  margin: 1.5em 0;
+}
+
+.info__title {
+  margin-bottom: 1em;
+}
+
+.info__btn {
+  margin-top: 1.5em;
+}
+
 /* MEDIA */
 
 @media (min-width: 600px) {
@@ -295,6 +325,35 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+  
+}
+
+@media (min-width: 700px) {
+  .info {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .info__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 80%;
+  }
+
+  .info__box {
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info__img {
+    order: -1;
+    min-width: 100%;
+    margin: 0 0 2em;
   }
 }
 
@@ -328,4 +387,40 @@ h3 {
   .hero__text {
     margin: 0 0 1em;
   }
+
+  .info {
+    padding: var(--section-padding-md) 0
+  }
+}
+
+@media (min-width: 1200px) {
+  .info, .hero {
+    padding: var(--section-padding-lg) 0;
+  }
+
+  .info__container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 1em;
+  }
+
+  .info__box {
+    max-width: 30%;
+    padding: var(--section-padding);
+
+  }
+
+  .info__img {
+    order: 0;
+    max-width: 40%;
+    object-fit: cover;
+    margin: 0;
+  }
+
+  .info__img {
+    order: 0;
+    min-width: 0;
+  }
+
 }

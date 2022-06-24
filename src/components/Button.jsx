@@ -27,7 +27,7 @@ function Button({
       colorCode = "#4EA5D9"
       break 
     default: 
-      colorCode = "#EF7F1A"
+      colorCode = color
   }
 
   let variantStyle
@@ -39,19 +39,22 @@ function Button({
       variantStyle = {backgroundColor: colorCode, border: "none", color: "#FFF"}
       break
     default:
-      variantStyle = {}
+      variantStyle = variant
   }
 
   let buttonSize
   switch(size) {
+    case "sm":
+      buttonSize = "clamp(1rem, 1.75vw, 1.15rem)"
+      break
     case "reg":
       buttonSize = "clamp(1.15rem, 1.75vw, 1.5rem)"
       break
     case "lg":
-      buttonSize = "clamp(1.5rem, 2.5vw, 1.875rem)"
+      buttonSize = "clamp(1.5rem, 2.25vw, 1.875rem)"
       break
     default:
-      buttonSize = "1.5rem"
+      buttonSize = size
   }
 
   return type === "button" ? 
