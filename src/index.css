@@ -37,7 +37,22 @@ font-family: 'Oswald', sans-serif;
 body {
   font-family: 'Montserrat', sans-serif;
   font-size: var(--paragraph-2-size);
-  color: var(--secondary-clr)
+  color: var(--secondary-clr);
+  overflow: overlay;
+}
+
+::-webkit-scrollbar {
+  width: 0.6em;
+  height: 0.6em;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 0 0 0.4em var(--accent-clr);
+  border-radius: 5px;
 }
 
 img {
@@ -125,11 +140,15 @@ h3 {
 
  .btn {
    cursor: pointer;
-   transition: opacity .15s ease;
+   transition: opacity .15s ease, transform .25 ease-in-out;
  }
 
  .btn:hover {
    opacity: .75;
+ }
+
+ .btn:active {
+   transform: scale(0.97);
  }
 
   /* HEADER */
@@ -229,6 +248,12 @@ h3 {
   transform: translateY(3px);
 }
 
+  /* FOOTER */
+
+  .footer {
+    color: white;
+  }
+
   /* HERO */
 
   .hero {
@@ -272,7 +297,7 @@ h3 {
   }
 
   .info__container {
-    max-width:350px;
+    max-width: 350px;
   }
 
 .info__box {
@@ -292,6 +317,61 @@ h3 {
 
 .info__btn {
   margin-top: 1.5em;
+}
+
+/* CANDIDATES */
+
+#candidates {
+  padding: var(--section-padding) 0;
+  text-align: center;
+}
+
+.candidate-cards {
+  padding: var(--section-padding) 0;
+  /* display: flex; */
+}
+
+.card {
+  max-width: 350px;
+  text-align: center;
+  padding: var(--section-padding) var(--section-padding-xs);
+  margin: 0 auto;
+}
+.card:hover img {
+  box-shadow: 0 0 15px var(--secondary-clr);
+}
+
+.card__img {
+  border-radius: 50%;
+  max-height: 8em;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto;
+  margin-bottom: 1.5em;
+}
+
+.card__img:hover {
+  transform: scale(1.3);
+}
+
+.card__idea, 
+.card__cost, 
+.card__time {
+  margin-bottom: 0.9em;
+  font-size: clamp(1.2rem, 3vw, var(--heading-3-size));
+}
+
+.card__name,
+.card__email,
+.card__phone {
+  margin-bottom: 1.05em;
+}
+
+.card__cost {
+}
+
+.card__accent {
+  font-size: var(--heading-2-size);
 }
 
 /* MEDIA */
@@ -402,7 +482,8 @@ h3 {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
-    gap: 1em;
+    gap: 1.5em;
+    max-width: var(--max-container-width);
   }
 
   .info__box {
@@ -413,7 +494,7 @@ h3 {
 
   .info__img {
     order: 0;
-    max-width: 40%;
+    flex: 1;
     object-fit: cover;
     margin: 0;
   }
