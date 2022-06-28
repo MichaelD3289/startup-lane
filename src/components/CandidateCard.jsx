@@ -6,11 +6,11 @@ function CandidateCard() {
   const [isContactInfo, setIsContactInfo] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isRejected, setisRejected] = useState(false);
-  const {createCandidate} = useGenerateCandidate()
-  const [candidate, setCandidate] = useState({ cost: "",
+  const {createCandidate, likeCandidate, removeCandidate} = useGenerateCandidate()
+  const [candidate, setCandidate] = useState({ cost: NaN,
     email: "",
-    maxTime: "",
-    minTime: "",
+    maxTime: NaN,
+    minTime: NaN,
     name: {first: "", last: ""},
     phone: "",
     picture: {large: ""},
@@ -25,10 +25,6 @@ function CandidateCard() {
     })() 
   }, [])
 
-  console.log(candidate)
-  if(candidate) {
-    
-  }
   const {
     cost,
     email,
@@ -40,8 +36,6 @@ function CandidateCard() {
     that,
     this: _this
   } = candidate
-
-  console.log(first, last)
 
   return (
     <div
@@ -73,7 +67,7 @@ function CandidateCard() {
             <span className="primary-clr card__accent"> {that}</span>
           </h3>
           <h3 className="card__cost">
-            Cost: <span className="primary-clr card__accent"> {cost}</span> million
+            Cost: <span className="primary-clr card__accent"> {cost?.toFixed(2)}</span> million
           </h3>
           <h3 className="card__time">
             Time: 
@@ -102,6 +96,7 @@ function CandidateCard() {
             onClick={() => {
               setisRejected((prev) => !prev);
               setIsLiked(false)
+              removeCandidate(email)
             }}
           >
             {isRejected ? "Rejected" : "Reject"}
@@ -114,6 +109,12 @@ function CandidateCard() {
             onClick={() => {
               setIsLiked((prev) => !prev);
               setisRejected(false);
+              if (!isLiked) {
+                likeCandidate(candidate)
+              } else {
+                removeCandidate(email)
+              }
+
             }}
           >
             {isLiked ? "unLike" : "Like"}

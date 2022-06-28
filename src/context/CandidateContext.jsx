@@ -15,7 +15,7 @@ export function useSaveLikedCandidates() {
 
 export default function CandidateContextProvider({ children }) {
 
-  const [candidates, setCandidates] = useState([])
+  const [savedCandidates, setSavedCandidates] = useLocalStorage("saved-candidates", [])
 
   async function createCandidate() {
    let candidate = await Promise
@@ -42,9 +42,25 @@ export default function CandidateContextProvider({ children }) {
 
   }
 
-  createCandidate()
+  function likeCandidate(candidate) {
+    setSavedCandidates(prev => ([...prev, candidate]))
+  }
+
+  function removeCandidate(email) {
+    setSavedCandidates(prev => {
+     return prev.filter(item => item.email !== email)
+    })
+  }
+
+  console.log(savedCandidates)
+
   return (
-    <GenerateCandidate.Provider value={{createCandidate}}>
+    <GenerateCandidate.Provider value={{
+      createCandidate,
+      savedCandidates,
+      likeCandidate,
+      removeCandidate
+      }}>
       <SaveLikedCandidates.Provider value="">
         {children}
       </SaveLikedCandidates.Provider>

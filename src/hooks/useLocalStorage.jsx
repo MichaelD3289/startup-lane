@@ -5,7 +5,7 @@ function useLocalStorage(key, startingValue) {
     const jsonValue = localStorage.getItem(key)
     if(jsonValue != null) return JSON.parse(jsonValue)
 
-    return initialValue
+    return startingValue
   })
 
   useEffect(() => {
@@ -16,3 +16,4 @@ function useLocalStorage(key, startingValue) {
 }
 
 export default useLocalStorage
+
