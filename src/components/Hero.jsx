@@ -3,7 +3,7 @@ import Button from "./Button";
 
 function Hero() {
   return (
-    <section class="hero">
+    <section className="hero">
       <div className="container hero__container">
         <div className="hero__img">
           <img src="../../imgs/hero-img.jpg" alt="" />

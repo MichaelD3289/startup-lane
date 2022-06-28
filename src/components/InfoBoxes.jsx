@@ -3,7 +3,7 @@ import Button from "./Button"
 
 function InfoBoxes() {
   return (
-    <section class="info">
+    <section className="info">
       <div className="container info__container">
         <div className="info__box">
           <h3 className="info__title">Efficient & Productive</h3>
