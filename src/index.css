@@ -4,7 +4,7 @@
   --accent-clr: #4ea5d9;
   --neutral-clr: #f3fcf0;
 
-  --max-container-width: 1200px;
+  --max-container-width: 1250px;
   --view-width: 80%;
 
   --heading-1-size: clamp(2rem, 3.5vw, 3rem);
@@ -19,9 +19,6 @@
   --section-padding: 2.5em;
   --section-padding-md: calc(2 * var(--section-padding));
   --section-padding-lg: calc(3 * var(--section-padding));
-
-  --button-padding: 0.5em 1.5em;
-  --button-padding-lg: 1em 2.25em;
 }
 
 *,
@@ -348,7 +345,7 @@ h3 {
 
 .card__img {
   border-radius: 50%;
-  height: 9em;
+  height: 8em;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   margin: 0 auto;

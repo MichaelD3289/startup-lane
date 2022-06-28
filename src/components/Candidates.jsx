@@ -2,7 +2,10 @@ import React from "react";
 import CandidateCards from "./CandidateCards";
 import Button from "./Button";
 
+
 function Candidates() {
+
+  
   return (
     <section id="candidates">
       <div className="container candidates__container">

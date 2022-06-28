@@ -35,7 +35,7 @@ function Footer() {
               </ul>
             </div>
             <div className="footer__info">
-              <h3 className="footer__info__title primary-clr">Other things</h3>
+              <h3 className="footer__info__title primary-clr">News & Info</h3>
               <ul className="footer__info__list">
                 <li className="footer__info__list__item">
                   <a href="#" className="footer__info__list__link">
@@ -60,7 +60,7 @@ function Footer() {
               </ul>
             </div>
             <div className="footer__info">
-              <h3 className="footer__info__title primary-clr">And more</h3>
+              <h3 className="footer__info__title primary-clr">Resources & links</h3>
               <ul className="footer__info__list">
                 <li className="footer__info__list__item">
                   <a href="#" className="footer__info__list__link">

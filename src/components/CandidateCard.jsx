@@ -1,10 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import { useGenerateCandidate } from "../context/CandidateContext";
 
 function CandidateCard() {
   const [isContactInfo, setIsContactInfo] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isRejected, setisRejected] = useState(false);
+  const {createCandidate} = useGenerateCandidate()
+  const [candidate, setCandidate] = useState({ cost: "",
+    email: "",
+    maxTime: "",
+    minTime: "",
+    name: {first: "", last: ""},
+    phone: "",
+    picture: {large: ""},
+    that: "",
+    "this": ""})
+
+
+  useEffect(() => {
+    (async () => {
+      let generatedCandidate = await createCandidate()
+      setCandidate(generatedCandidate);
+    })() 
+  }, [])
+
+  console.log(candidate)
+  if(candidate) {
+    
+  }
+  const {
+    cost,
+    email,
+    maxTime,
+    minTime,
+    name: {first, last},
+    phone,
+    picture: {large},
+    that,
+    this: _this
+  } = candidate
+
+  console.log(first, last)
 
   return (
     <div
@@ -13,34 +50,34 @@ function CandidateCard() {
     >
       <img
         className="card__img"
-        src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80"
+        src={large}
         alt=""
       />
       {isContactInfo ? (
         <>
           <h3 className="card__name">
-            Firstly <span className="primary-clr">Lastly</span>
+            {first} <span className="primary-clr">{last}</span>
           </h3>
           <h3 className="card__email">
-            email<span className="primary-clr">@</span>email.com
+            {email.split('@')[0]}<span className="primary-clr">@</span>{email.split('@')[1]}
           </h3>
           <h3 className="card__phone">
-            123-456-<span className="primary-clr">7890</span>
+            {phone.split('-')[0]}-{phone.split('-')[1]}-<span className="primary-clr">{phone.split('-')[2]}</span>
           </h3>
         </>
       ) : (
         <>
           <h3 className="card__idea">
-            Its like a{" "}
-            <span className="primary-clr card__accent">Ponzi Scheme</span> for{" "}
-            <span className="primary-clr card__accent">Your Aquarium</span>
+            Its like a 
+            <span className="primary-clr card__accent"> {_this}</span> for <br />
+            <span className="primary-clr card__accent"> {that}</span>
           </h3>
           <h3 className="card__cost">
-            Cost: <span className="primary-clr card__accent">1.25</span> million
+            Cost: <span className="primary-clr card__accent"> {cost}</span> million
           </h3>
           <h3 className="card__time">
-            Completion Time:{" "}
-            <span className="primary-clr card__accent">6-8</span> months
+            Time: 
+            <span className="primary-clr card__accent"> {minTime}-{maxTime}</span> months
           </h3>
         </>
       )}
@@ -64,6 +101,7 @@ function CandidateCard() {
             style={{ width: "47.5%", marginRight: "5%" }}
             onClick={() => {
               setisRejected((prev) => !prev);
+              setIsLiked(false)
             }}
           >
             {isRejected ? "Rejected" : "Reject"}
@@ -75,6 +113,7 @@ function CandidateCard() {
             style={{ width: "47.5%" }}
             onClick={() => {
               setIsLiked((prev) => !prev);
+              setisRejected(false);
             }}
           >
             {isLiked ? "unLike" : "Like"}
