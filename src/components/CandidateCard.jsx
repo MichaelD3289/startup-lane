@@ -20,9 +20,14 @@ function CandidateCard() {
 
   useEffect(() => {
     (async () => {
-      let generatedCandidate = await createCandidate()
-      setCandidate(generatedCandidate);
+      // let generatedCandidate = await createCandidate()
+      // setCandidate(generatedCandidate);
+      setCandidate(await createCandidate())
+      console.log('times ran')
+
+
     })() 
+
   }, [])
 
   const {
@@ -36,6 +41,17 @@ function CandidateCard() {
     that,
     this: _this
   } = candidate
+
+  let firstLetterVowel = false
+  switch(_this[0]?.toLowerCase()) {
+    case "a":
+    case "e":
+    case "i":
+    case "o":
+    case "u":
+      firstLetterVowel = true;
+      break;
+  }
 
   return (
     <div
@@ -62,7 +78,7 @@ function CandidateCard() {
       ) : (
         <>
           <h3 className="card__idea">
-            Its like a 
+            Its like {firstLetterVowel ? "an" : "a"} 
             <span className="primary-clr card__accent"> {_this}</span> for <br />
             <span className="primary-clr card__accent"> {that}</span>
           </h3>
@@ -125,4 +141,4 @@ function CandidateCard() {
   );
 }
 
-export default CandidateCard;
+export default React.memo(CandidateCard);

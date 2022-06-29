@@ -57,11 +57,10 @@ export default function CandidateContextProvider({ children }) {
   return (
     <GenerateCandidate.Provider value={{
       createCandidate,
-      savedCandidates,
       likeCandidate,
       removeCandidate
       }}>
-      <SaveLikedCandidates.Provider value="">
+      <SaveLikedCandidates.Provider value={      savedCandidates}>
         {children}
       </SaveLikedCandidates.Provider>
     </GenerateCandidate.Provider>
