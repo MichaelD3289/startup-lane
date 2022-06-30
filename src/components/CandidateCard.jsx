@@ -20,14 +20,8 @@ function CandidateCard() {
 
   useEffect(() => {
     (async () => {
-      // let generatedCandidate = await createCandidate()
-      // setCandidate(generatedCandidate);
       setCandidate(await createCandidate())
-      console.log('times ran')
-
-
     })() 
-
   }, [])
 
   const {

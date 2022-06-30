@@ -331,7 +331,7 @@ h3 {
 }
 
 .candidate-cards {
-  padding: var(--section-padding) 0;
+  padding: var(--section-padding-xs) 0;
   display: flex;
   gap: 2em;
 }
@@ -339,10 +339,10 @@ h3 {
 .card {
   max-width: 375px;
   text-align: center;
-  padding: var(--section-padding) var(--section-padding-xs);
+  padding: var(--section-padding-xs);
   width: 100%;
-  /* border: 2px solid red; */
 }
+
 .card:hover img, .saved-card:hover img {
   box-shadow: 0 0 15px var(--secondary-clr);
 }
@@ -751,6 +751,8 @@ h3 {
   .card__phone--saved {
     margin-bottom: 0;
   }
+
+  
 }
 
 @media (min-width: 1000px) {
@@ -786,6 +788,14 @@ h3 {
 
   .info {
     padding: var(--section-padding-md) 0;
+  }
+
+  .candidate-cards {
+    padding: var(--section-padding) 0;
+  }
+  
+  .card {
+    padding: var(--section-padding) var(--section-padding-xs);
   }
 
   .footer__row--one {

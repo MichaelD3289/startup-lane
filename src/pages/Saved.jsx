@@ -15,7 +15,7 @@ function Saved() {
     timeMin: "",
     timeMax: "",
   });
-  console.log(inputs)
+  
   function handleInputChange({ target: { value, name } }) {
     setInputs((prev) => ({
       ...prev,
