@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../components/Button";
 import SavedCandidateCard from "../components/SavedCandidateCard";
 import { useSaveLikedCandidates } from "../context/CandidateContext";
@@ -15,7 +15,11 @@ function Saved() {
     timeMin: "",
     timeMax: "",
   });
-  
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   function handleInputChange({ target: { value, name } }) {
     setInputs((prev) => ({
       ...prev,
