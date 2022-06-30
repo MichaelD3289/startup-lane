@@ -160,7 +160,7 @@ h3 {
 
 .logo {
   max-height: clamp(3rem, 5.5vw, 4rem);
-  margin: 0 auto;
+  margin: 0;
 }
 
 .nav__item {
@@ -508,7 +508,7 @@ h3 {
 
   .filter {
     position: absolute;
-    top: 145px;
+    top: 170px;
     left: 0;
     transform: translateX(-100%);
     padding: var(--section-padding-xs) var(--section-padding);
@@ -572,7 +572,7 @@ h3 {
 
     .sort {
       position: absolute;
-      top: 200px;
+      top: 220px;
       left: 0;
       transform: translateX(-3%);
       border-radius: 5px;
