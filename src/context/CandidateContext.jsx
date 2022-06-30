@@ -25,7 +25,7 @@ export default function CandidateContextProvider({ children }) {
         `https://randomuser.me/api/?inc=name,email,phone,picture&nat=au,us,ca,nz&noinfo`
       ),
       fetch(
-        `https://powerful-stream-13617.herokuapp.com/http://itsthisforthat.com/api.php?json`
+        `http://itsthisforthat.com/api.php?json`
       ),
     ])
       .then((responses) => {
