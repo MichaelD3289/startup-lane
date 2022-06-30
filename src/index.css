@@ -840,8 +840,12 @@ h3 {
   .info,
   .hero,
   .footer,
-  #candidates {
+  #candidates{
     padding: var(--section-padding-lg) 0;
+  }
+
+  .saved {
+    padding: var(--section-padding) 0;
   }
 
   .footer__title {

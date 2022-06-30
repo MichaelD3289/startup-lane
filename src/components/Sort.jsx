@@ -12,7 +12,7 @@ function Sort({ change }) {
     setOptions((options) => {
       return options.map((o) => {
         if (o.active && o.name === id) {
-          change({ field: o.field, order: "" });
+          change({ field: "", order: "" });
           return { ...o, active: false };
         }
         if (o.name === id) {

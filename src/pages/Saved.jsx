@@ -6,9 +6,9 @@ import Filter from "../components/Filter";
 import Sort from "../components/Sort";
 
 function Saved() {
-  const savedCandidates = useSaveLikedCandidates();
+  const {savedCandidates, removeAllCandidates} = useSaveLikedCandidates();
   const [sort, setSort] = useState({ field: "", order: "" });
-
+  
   return (
     <main className="saved">
       <div className="saved__fixed-container">
@@ -21,15 +21,19 @@ function Saved() {
           <Button
             variant="solid"
             size="clamp(0.9rem, 1.75vw, 1.15rem)"
-            onClick={() => console.log("clicked")}
+            onClick={removeAllCandidates}
           >
             Reject All
           </Button>
         </div>
         <section className="saved-cards">
-          {savedCandidates
+          {sort.field === "" && savedCandidates
+            .map((saved) => (
+              <SavedCandidateCard key={saved.name + saved.phone} {...saved} />
+            ))}
+              
+          {sort.field !== "" && [].concat(savedCandidates)
             .sort((a, b) => {
-              if (sort.field === "") return a - b;
               if (sort.order === "a") {
                 return a[sort.field] - b[sort.field];
               } else {

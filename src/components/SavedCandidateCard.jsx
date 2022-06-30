@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "./Button";
 import useWindowSize from "../hooks/useWindowSize";
+import { useGenerateCandidate } from "../context/CandidateContext";
 
 function SavedCandidateCard({
   cost,
@@ -15,6 +16,7 @@ function SavedCandidateCard({
 }) {
   const [isContactInfo, setIsContactInfo] = useState(false);
   const { width } = useWindowSize();
+  const {removeCandidate} = useGenerateCandidate()
 
   let firstLetterVowel = false;
   switch (_this[0]?.toLowerCase()) {
@@ -29,7 +31,7 @@ function SavedCandidateCard({
 
   return (
     <div className={`saved-card${isContactInfo ? " saved-card-bg" : ""}`}>
-      <div className="reject-x">
+      <div className="reject-x" onClick={() => removeCandidate(email)}>
       &#10006;
       </div>
       
