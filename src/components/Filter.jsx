@@ -1,23 +1,10 @@
 import React, { useState } from "react";
 import Button from "./Button";
 
-function Filter() {
-  const [showFilter, setShowFilter] = useState(false)
-  const [inputs, setInputs] = useState({
-    costMin: "",
-    costMax: "",
-    timeMin: "",
-    timeMax: "",
-  });
+function Filter({ filterInputs, handleChange, handleClick }) {
+  const [showFilter, setShowFilter] = useState(false);
 
-  function handleInputChange({ target: { value, name } }) {
-    setInputs((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
-
-  const { costMin, costMax, timeMin, timeMax } = inputs;
+  const { costMin, costMax, timeMin, timeMax } = filterInputs;
   return (
     <div className={`filter ${showFilter ? "filter--show" : ""}`}>
       <Button
@@ -25,8 +12,13 @@ function Filter() {
         color="secondary"
         size="sm"
         className="filter__button"
-        style={{width: "120px", height: "2.25em", padding: "0"}}
-        onClick={() => setShowFilter(prev => !prev)}
+        style={{ width: "120px", height: "2.25em", padding: "0" }}
+        onClick={() => {
+          if(showFilter) {
+            handleClick()
+          }
+          setShowFilter((prev) => !prev)
+        }}
       >
         {showFilter ? "Submit" : "Filter"}
       </Button>
@@ -40,7 +32,7 @@ function Filter() {
             name="costMin"
             id="costMin"
             placeholder="min"
-            onChange={handleInputChange}
+            onChange={handleChange}
             value={costMin}
           />
           <p className="filter__input-unit">million</p>
@@ -53,9 +45,8 @@ function Filter() {
             name="costMax"
             id="costMax"
             placeholder="max"
-            onChange={handleInputChange}
+            onChange={handleChange}
             value={costMax}
-            
           />
           <p className="filter__input-unit">million</p>
         </div>
@@ -70,7 +61,7 @@ function Filter() {
             name="timeMin"
             id="timeMin"
             placeholder="min"
-            onChange={handleInputChange}
+            onChange={handleChange}
             value={timeMin}
           />
           <p className="filter__input-unit">months</p>
@@ -83,7 +74,7 @@ function Filter() {
             name="timeMax"
             id="timeMax"
             placeholder="max"
-            onChange={handleInputChange}
+            onChange={handleChange}
             value={timeMax}
           />
           <p className="filter__input-unit">months</p>

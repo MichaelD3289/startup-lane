@@ -80,3 +80,5 @@ export default function CandidateContextProvider({ children }) {
     </GenerateCandidate.Provider>
   );
 }
+
+
