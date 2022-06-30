@@ -32,6 +32,7 @@ function SavedCandidateCard({
       <div className="reject-x">
       &#10006;
       </div>
+      
       <div className="saved-card__img-container">
         <img src={large} alt="" className="saved-card__img" />
         {width >= 600 && width < 1000 && (

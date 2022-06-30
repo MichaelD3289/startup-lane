@@ -1,0 +1,30 @@
+[
+  {
+    "textOne": "least",
+    "textTwo": "expensive",
+    "name": "least-expensive",
+    "accentClr": "accent-clr",
+    "field": "cost"
+  },
+  {
+    "textOne": "most",
+    "textTwo": "expensive",
+    "name": "most-expensive",
+    "accentClr": "primary-clr",
+    "field": "cost"
+  },
+  {
+    "textOne": "least",
+    "textTwo": "time",
+    "name": "least-time",
+    "accentClr": "accent-clr",
+    "field": "minTime"
+  },
+  {
+    "textOne": "most",
+    "textTwo": "time",
+    "name": "most-time",
+    "accentClr": "primary-clr",
+    "field": "minTime"
+  }
+]
