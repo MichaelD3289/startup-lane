@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 function Header() {
-  const [showNav, setShowNav] = useState(true);
+  const [hideNav, setHideNav] = useState(true);
 
   return (
     <header className="header neutral-bg secpad-xs">
       <div className="container row">
         <button
           onClick={() => {
-            setShowNav((prev) => !prev);
+            setHideNav((prev) => !prev);
           }}
           className="nav-toggle"
           aria-label="open navigation"
@@ -21,7 +21,7 @@ function Header() {
           src="../../imgs/logo.png"
           alt="startup lane logo"
         />
-        <nav className={showNav ? "nav" : "nav nav--hidden"}>
+        <nav className={hideNav ? "nav" : "nav nav--hidden"}>
           <ul className="nav__list">
             <li className="nav__item">
               <NavLink
@@ -29,6 +29,7 @@ function Header() {
                 className={({ isActive }) =>
                   isActive ? "nav__link--active" : "nav__link"
                 }
+                onClick={() => setHideNav(true)}
               >
                 Home
               </NavLink>
@@ -39,6 +40,7 @@ function Header() {
                 className={({ isActive }) =>
                   isActive ? "nav__link--active" : "nav__link"
                 }
+                onClick={() => setHideNav(true)}
               >
                 Saved
               </NavLink>
