@@ -17,12 +17,34 @@ function CandidateCard() {
     that: "",
     "this": ""})
 
+  async function getNewCandidate() {
+    setCandidate({ cost: NaN,
+      email: "",
+      maxTime: NaN,
+      minTime: NaN,
+      name: {first: "", last: ""},
+      phone: "",
+      picture: {large: ""},
+      that: "",
+      "this": ""})
+    setCandidate(await createCandidate())
+  }
 
   useEffect(() => {
-    (async () => {
-      setCandidate(await createCandidate())
-    })() 
+    getNewCandidate() 
   }, [])
+
+  useEffect(() => {
+
+    if(isRejected) {
+      getNewCandidate()
+      setisRejected(false)
+    }
+    if(isLiked) {
+      getNewCandidate()
+      setIsLiked(false)
+    }
+  }, [isRejected, isLiked])
 
   const {
     cost,

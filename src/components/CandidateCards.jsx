@@ -6,9 +6,10 @@ function CandidateCards() {
   const { width } = useWindowSize()
   
   const cardDisplayIncrement = 310
+  let maxContainerWidth = 0.8;
 
   let cardFlexAlignment;
-  if(width * 0.8 < cardDisplayIncrement * 2) {
+  if(width * maxContainerWidth < cardDisplayIncrement * 2) {
     cardFlexAlignment = {justifyContent: "center"}
   } else {
     cardFlexAlignment = {justifyContent: "space-between"}
@@ -18,8 +19,8 @@ function CandidateCards() {
   return (
     <div className='candidate-cards' style={cardFlexAlignment}>
       <CandidateCard />
-      {width * .8 >= cardDisplayIncrement * 2 && <CandidateCard />}
-      {width * .8 >= cardDisplayIncrement * 3 && <CandidateCard />}
+      {width * maxContainerWidth >= cardDisplayIncrement * 2 && <CandidateCard />}
+      {width * maxContainerWidth >= cardDisplayIncrement * 3 && <CandidateCard />}
     </div>
   )
 }

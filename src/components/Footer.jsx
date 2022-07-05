@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 
 function Footer() {
   return (
@@ -23,14 +24,14 @@ function Footer() {
               </h3>
               <ul className="footer__info__list">
                 <li className="footer__info__list__item">
-                  <a href="#" className="footer__info__list__link">
+                  <Link to="/" className="footer__info__list__link">
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li className="footer__info__list__item">
-                  <a href="#" className="footer__info__list__link">
+                <Link to="/saved" className="footer__info__list__link">
                     Saved
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
